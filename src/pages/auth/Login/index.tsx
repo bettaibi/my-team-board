@@ -67,7 +67,7 @@ const LoginForm = () => {
     async function handleSubmit(values: LoginModel, resetForm: () => void) {
         try {
                 setLoading(true)
-                const { data } = await axios.post(`/auth/login`, values);
+                const { data } = await axios.post(`/auth/login`, values, { withCredentials: true });
                 if(data.success) {
                     showMsg(data.message, 'success');
                     resetForm();

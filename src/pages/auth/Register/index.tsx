@@ -65,7 +65,7 @@ const RegisterForm = () => {
         try {
                 setLoading(true)
                 const {confirmPassword, ...payload} = values;
-                const { data } = await axios.post(`/auth/register`, payload);
+                const { data } = await axios.post(`/auth/register`, payload, { withCredentials: true });
                 if(data.success) {
                     showMsg(data.message, 'success');
                     resetForm();
