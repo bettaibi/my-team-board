@@ -14,10 +14,10 @@
     "static/js/5.2bdf4365.chunk.js": "/my-team-board/static/js/5.2bdf4365.chunk.js",
     "static/js/5.2bdf4365.chunk.js.map": "/my-team-board/static/js/5.2bdf4365.chunk.js.map",
     "main.css": "/my-team-board/static/css/main.26f0ee7c.chunk.css",
-    "main.js": "/my-team-board/static/js/main.1cca2372.chunk.js",
-    "main.js.map": "/my-team-board/static/js/main.1cca2372.chunk.js.map",
-    "runtime-main.js": "/my-team-board/static/js/runtime-main.d595609b.js",
-    "runtime-main.js.map": "/my-team-board/static/js/runtime-main.d595609b.js.map",
+    "main.js": "/my-team-board/static/js/main.40e31089.chunk.js",
+    "main.js.map": "/my-team-board/static/js/main.40e31089.chunk.js.map",
+    "runtime-main.js": "/my-team-board/static/js/runtime-main.be5ddb68.js",
+    "runtime-main.js.map": "/my-team-board/static/js/runtime-main.be5ddb68.js.map",
     "static/js/8.42262463.chunk.js": "/my-team-board/static/js/8.42262463.chunk.js",
     "static/js/8.42262463.chunk.js.map": "/my-team-board/static/js/8.42262463.chunk.js.map",
     "static/css/9.ca756f56.chunk.css": "/my-team-board/static/css/9.ca756f56.chunk.css",
@@ -45,8 +45,8 @@
     "static/js/18.11d35a2e.chunk.js.map": "/my-team-board/static/js/18.11d35a2e.chunk.js.map",
     "static/js/19.ea859089.chunk.js": "/my-team-board/static/js/19.ea859089.chunk.js",
     "static/js/19.ea859089.chunk.js.map": "/my-team-board/static/js/19.ea859089.chunk.js.map",
-    "static/js/20.28266a97.chunk.js": "/my-team-board/static/js/20.28266a97.chunk.js",
-    "static/js/20.28266a97.chunk.js.map": "/my-team-board/static/js/20.28266a97.chunk.js.map",
+    "static/js/20.12e80ac2.chunk.js": "/my-team-board/static/js/20.12e80ac2.chunk.js",
+    "static/js/20.12e80ac2.chunk.js.map": "/my-team-board/static/js/20.12e80ac2.chunk.js.map",
     "static/js/21.93b9695e.chunk.js": "/my-team-board/static/js/21.93b9695e.chunk.js",
     "static/js/21.93b9695e.chunk.js.map": "/my-team-board/static/js/21.93b9695e.chunk.js.map",
     "static/js/22.59ef3191.chunk.js": "/my-team-board/static/js/22.59ef3191.chunk.js",
@@ -68,10 +68,10 @@
     "static/media/poster.60a869c3.jpg": "/my-team-board/static/media/poster.60a869c3.jpg"
   },
   "entrypoints": [
-    "static/js/runtime-main.d595609b.js",
+    "static/js/runtime-main.be5ddb68.js",
     "static/css/9.ca756f56.chunk.css",
     "static/js/9.2501c2ad.chunk.js",
     "static/css/main.26f0ee7c.chunk.css",
-    "static/js/main.1cca2372.chunk.js"
+    "static/js/main.40e31089.chunk.js"
   ]
 }
