@@ -1,29 +1,8 @@
 import React from 'react';
 import { Route, Redirect } from 'react-router-dom';
-
-function getCookie(cname: string) {
-    let name = cname + "=";
-    let ca = document.cookie.split(';');
-    for(let i = 0; i < ca.length; i++) {
-      let c = ca[i];
-      while (c.charAt(0) === ' ') {
-        c = c.substring(1);
-      }
-      if (c.indexOf(name) === 0) {
-        return c.substring(name.length, c.length);
-      }
-    }
-    return "";
-}
-
-function checkCookie(cname: string): boolean {
-    let token = getCookie(cname);
-    if (token !== "") {
-      return true;
-    } else {
-      return false;
-    }
-}
+import Cookies from 'universal-cookie';
+ 
+const cookies = new Cookies();
 
 interface PrivateRouteProps{
   exact?: boolean;
@@ -31,9 +10,9 @@ interface PrivateRouteProps{
   component: React.ComponentType<any>;
 }
 const PrivateRoute: React.FC<PrivateRouteProps> = ({path,  component: Component, ...rest}) => {
-    const token = checkCookie("jwt");
+    const isLogged = cookies.get('isLogged');
 
-    if (token) {
+    if (isLogged == 'OK') {
       return <Route path={path} component={Component} {...rest} />
     }
     else{

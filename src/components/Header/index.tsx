@@ -24,6 +24,9 @@ import axios from 'axios';
 import useSwipeableSidenav from '../../hooks/useSwipeableSidenav';
 import UsePopover from '../../hooks/usePopover';
 import Navigation from '../Navigation';
+import Cookies from 'universal-cookie';
+ 
+const cookies = new Cookies();
 
 const drawerWidth = 280;
 
@@ -162,10 +165,12 @@ const AccountMenu = () => {
         try{
             const { data } = await axios.post(`/auth/logout`);
             if(data.success){
-                document.cookie = "jwt=;";
                 localStorage.clear();
                 sessionStorage.clear();
-                history.push('/login');
+                cookies.remove("isLogged", {sameSite: 'none', secure: true});
+                setTimeout(() => {
+                    history.push('/login');
+                },1000)
             }
             else{
                 handleClose();

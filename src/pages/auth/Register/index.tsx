@@ -17,6 +17,9 @@ import MyTextField from '../../../components/MyTextField';
 import axios from 'axios';
 import useSnackbar from '../../../hooks/useSnackbar';
 import { RegisterModel } from '../../../models/auth.model';
+import Cookies from 'universal-cookie';
+ 
+const cookies = new Cookies();
 
 const schema = yup.object().shape({
     name: yup.string().required('Full name is required'),
@@ -65,9 +68,10 @@ const RegisterForm = () => {
         try {
                 setLoading(true)
                 const {confirmPassword, ...payload} = values;
-                const { data } = await axios.post(`/auth/register`, payload, { withCredentials: true });
-                if(data.success) {
-                    showMsg(data.message, 'success');
+                const res = await axios.post(`/auth/register`, payload);
+                if(res.data.success) {
+                    showMsg(res.data.message, 'success');
+                    cookies.set('isLogged', 'OK', {maxAge: res.data.expiredAt, sameSite: 'none', secure: true, httpOnly: true})
                     resetForm();
                     setTimeout(()=> {
                         history.push('/team');
@@ -75,7 +79,7 @@ const RegisterForm = () => {
                 }
                 else{
                     setLoading(false);
-                    showMsg(data.message, 'error');
+                    showMsg(res.data.message, 'error');
                 }
         }
         catch (err) {

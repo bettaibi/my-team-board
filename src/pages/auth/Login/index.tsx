@@ -21,6 +21,9 @@ import useToggle from '../../../hooks/useToggle';
 import MyTextField from '../../../components/MyTextField';
 import axios from 'axios';
 import useSnackbar from '../../../hooks/useSnackbar';
+import Cookies from 'universal-cookie';
+ 
+const cookies = new Cookies();
 
 const schema = yup.object().shape({
     email: yup.string().required('Email is required').email('Invalid Email'),
@@ -67,9 +70,10 @@ const LoginForm = () => {
     async function handleSubmit(values: LoginModel, resetForm: () => void) {
         try {
                 setLoading(true)
-                const { data } = await axios.post(`/auth/login`, values, { withCredentials: true });
+                const { data } = await axios.post(`/auth/login`, values);
                 if(data.success) {
                     showMsg(data.message, 'success');
+                    cookies.set('isLogged', 'OK', {maxAge: data.expiredAt, sameSite: 'none', secure: true, httpOnly: true})
                     resetForm();
                     setTimeout(()=> {
                         history.push('/team')
