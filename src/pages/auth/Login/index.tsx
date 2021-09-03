@@ -73,7 +73,7 @@ const LoginForm = () => {
                 const { data } = await axios.post(`/auth/login`, values);
                 if(data.success) {
                     showMsg(data.message, 'success');
-                    cookies.set('isLogged', 'OK', {maxAge: data.expiredAt, sameSite: 'none', secure: true, httpOnly: true})
+                    cookies.set('isLogged', 'OK', {maxAge: data.expiredAt})
                     resetForm();
                     setTimeout(()=> {
                         history.push('/team')

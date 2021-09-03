@@ -71,7 +71,7 @@ const RegisterForm = () => {
                 const res = await axios.post(`/auth/register`, payload);
                 if(res.data.success) {
                     showMsg(res.data.message, 'success');
-                    cookies.set('isLogged', 'OK', {maxAge: res.data.expiredAt, sameSite: 'none', secure: true, httpOnly: true})
+                    cookies.set('isLogged', 'OK', {maxAge: res.data.expiredAt})
                     resetForm();
                     setTimeout(()=> {
                         history.push('/team');

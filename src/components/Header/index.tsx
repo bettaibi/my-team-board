@@ -167,7 +167,7 @@ const AccountMenu = () => {
             if(data.success){
                 localStorage.clear();
                 sessionStorage.clear();
-                cookies.remove("isLogged", {sameSite: 'none', secure: true});
+                cookies.remove("isLogged");
                 setTimeout(() => {
                     history.push('/login');
                 },1000)
