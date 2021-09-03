@@ -58,7 +58,8 @@ const useStyle = makeStyles((theme: Theme) => ({
     }
 }));
 
-const callRingtone = new Audio('/audio/caller.mp3');
+
+const callRingtone = new Audio(`${process.env.PUBLIC_URL}/audio/caller.mp3`);
 
 const Dial = ({currentUser, onCallAccepted}: {currentUser: UserModel, onCallAccepted: () => void}) => {
     const [callState, SetCallState] = React.useState<string>('Dialing...');

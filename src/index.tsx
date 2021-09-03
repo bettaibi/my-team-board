@@ -9,9 +9,24 @@ import { Provider } from 'react-redux';
 import { createStore } from "redux";
 
 import 'emoji-mart/css/emoji-mart.css';
+import Cookies from 'universal-cookie';
+ 
+const cookies = new Cookies();
 
 axios.defaults.baseURL = process.env.REACT_APP_BASE_URL;
 axios.defaults.withCredentials = true;
+
+axios.interceptors.response.use(response => {
+  return response;
+}, error => {
+ if (error.response.status === 401) {
+    localStorage.clear();
+    sessionStorage.clear();
+    cookies.remove("isLogged");
+    window.location.reload();
+ }
+ return error;
+});
 
 const store = createStore(appReducer);
 

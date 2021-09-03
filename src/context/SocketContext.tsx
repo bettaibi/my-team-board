@@ -23,8 +23,8 @@ interface ContextProps {
     sendMessage: (workspaceId:string | null, receiverId: string, data: MessageModel) => void;
 }
 
-const WS = process.env.REACT_APP_WS_URL || '/chat';
-const socket = io(`${WS}/chat`);
+const WS = "https://my-team-board.herokuapp.com/chat";
+
 const SocketContext = React.createContext({} as ContextProps);
 
 export const SocketEvents = {
@@ -43,8 +43,12 @@ export const SocketProvider = ({ children }: { children: JSX.Element }) => {
     const [onlineUsers, setOnlineUsers] = React.useState<OnlineUserProps>({});
     const { DialogComponent, onDialogOpen, onDialogClose } = useDialogComponent();
 
+    const socket = React.useMemo(() => {
+        return io(WS);
+    }, []);
+
     const msgRingTone = React.useMemo(()=> {
-        return new Audio('/audio/wsn.mp3');
+        return new Audio( `${process.env.PUBLIC_URL}/audio/wsn.mp3`);
     }, []);
 
     useEffect(() => {

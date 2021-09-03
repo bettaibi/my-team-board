@@ -60,7 +60,7 @@ const useStyle = makeStyles((theme: Theme) => ({
 }));
 
 const callRingtone = new Howl({
-    src: '/audio/app_call.mp3',
+    src: `${process.env.PUBLIC_URL}/audio/app_call.mp3`,
     loop: true,
     preload: true
   })
